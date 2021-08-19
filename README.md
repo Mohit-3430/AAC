@@ -11,6 +11,7 @@ Link to the web app, developed using flask and hosted on heroku: https://i-farm-
     * App is created using Flask and frontend is done using HTML, CSS , Bootstrap(v.5x) and Javascript
     * All asscociated web app files are this directory
 * To Run the code use requirements.txt in parent directory to create the project development environment
+* Check **Project Report** document for detailed description
 ## Precision Farming and Our Motive:
 
 It is An information and technology-based farm management system that identifies, analyses and manages variability in fields by conducting crop production practices at the right place and time and in the right way, for optimum profitability, sustainability and protection of the land resource.
