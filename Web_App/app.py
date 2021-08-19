@@ -87,7 +87,7 @@ app = Flask(__name__)
 # =================Landing Pages========================
 @app.route("/")
 def home():
-    title='Smart Farming'
+    title='I-Farm'
     return render_template("index.html", title=title)
 
 
