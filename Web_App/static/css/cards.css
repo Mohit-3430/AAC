@@ -1,0 +1,12 @@
+.img-effect{
+  overflow: hidden;
+}
+
+.img-effect img{
+  
+  transition: all 1.5s ease;
+}
+
+.img-effect:hover img{
+    transform: scale(1.5);
+}

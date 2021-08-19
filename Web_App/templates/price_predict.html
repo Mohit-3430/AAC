@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<style>
+  .wrapper {
+    text-align: center;
+  }
+
+  .button {
+    position: absolute;
+    top: 50%;
+  }
+</style>
+
+<h1 style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+  class="mt-3 pb-0">Predict Price</h1>
+
+
+<div class="container my-4" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+  <form action="{{ url_for('price_result') }}" method="POST">
+    <div class="col-md-6 mx-auto">
+
+      <div class="form-floating mb-3">
+        <select class="form-select" id="floatingSelect" name="State" aria-label="Floating label select example">
+          <option selected>Open this</option>
+          <option value=1>Andhra Pradesh</option>
+          <option value=2>Assam</option>
+          <option value=3>Bihar</option>
+          <option value=4>Chhattisgarh</option>
+          <option value=5>Gujarat</option>
+          <option value=6>Haryana</option>
+          <option value=7>Himachal Pradesh</option>
+          <option value=8>Jharkhand</option>
+          <option value=9>Karnataka</option>
+          <option value=10>Kerala</option>
+          <option value=11>Madhya Pradesh</option>
+          <option value=12>Maharashtra</option>
+          <option value=13>Orissa</option>
+          <option value=14>Punjab</option>
+          <option value=15>Rajasthan</option>
+          <option value=16>Tamil Nadu</option>
+          <option value=17>Telangana</option>
+          <option value=18>Uttar Pradesh</option>
+          <option value=19>Uttarakhand</option>
+          <option value=20>West Bengal</option>
+        </select>
+        <label for="floatingSelect">Select State</label>
+      </div>
+      <div class="form-floating mb-3">
+        <select class="form-select" id="floatingSelect" name="Crop" aria-label="Floating label select example">
+          <option selected>Open this</option>
+          <option value=1>barley</option>
+          <option value=2>castor</option>
+          <option value=3>chickpea</option>
+          <option value=4>cotton</option>
+          <option value=5>finger millet</option>
+          <option value=6>groundnut</option>
+          <option value=7>linseed</option>
+          <option value=8>maize</option>
+          <option value=9>pearl millet</option>
+          <option value=10>pigeonpea</option>
+          <option value=11>rape and mustard</option>
+          <option value=12>rice</option>
+          <option value="13">seasmum</option>
+          <option value="14">sorghum</option>
+          <option value="15">sugarcane</option>
+          <option value="16">wheat</option>
+        </select>
+        <label for="floatingSelect">Select Crop</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="floatingInput" name="Year" placeholder="year" required='required'>
+        <label for="floatingInput">Year</label>
+      </div>
+      <div class="wrapper">
+        <button type="submit" class="btn btn-outline-primary btn-block btn-large">Predict</button>
+      </div>
+    </div>
+</div>
+</form>
+</div>
+</div>
+
+
+{% endblock %}
