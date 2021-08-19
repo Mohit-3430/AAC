@@ -2,7 +2,6 @@ from flask import Flask, request, render_template, redirect, Markup
 import requests
 import io
 import os
-import numpy as np
 import joblib
 import torch
 from torchvision import transforms
