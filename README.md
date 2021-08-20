@@ -7,9 +7,9 @@ Link to the web app, developed using flask and hosted on heroku: https://i-farm-
 * All ml and dl code is in Jupyter Notebooks directory
 * Datsets used for this are in datsets folder 
     * Except this one used for DL : https://www.kaggle.com/vipoooool/new-plant-diseases-dataset
-* The web app is only created from the web directory by using the git subtree     method and it runs independently prior to parent directory
-    * App is created using Flask and frontend is done using HTML, CSS , Bootstrap(v.5x) and Javascript
-    * All asscociated web app files are this directory
+* The web app is only created from the Web_App directory by using the git subtree method and it runs independently prior to parent directory
+    * App is created using Flask and frontend is done using HTML, CSS , Bootstrap(v5.1) and Javascript
+    * All asscociated web app files are in this directory
 * To Run the code use requirements.txt in parent directory to create the project development environment
 * Check **Project Report** document for detailed description
 ## Precision Farming and Our Motive:
