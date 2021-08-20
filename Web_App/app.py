@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, Markup
+from flask import Flask, request, render_template, flash, Markup
 import requests
 import io
 import os
@@ -10,7 +10,10 @@ from werkzeug.utils import secure_filename
 from PIL import Image
 from utils.disease_model import ResNet9
 from utils.disease import disease_dic
+import datetime
 
+current_time = datetime.datetime.now() 
+current_year = current_time.year
 
 # loading pipeline files through joblib
 model_yield = joblib.load(open("model_files/crop_yield_prediction.joblib", "rb"))
@@ -94,13 +97,13 @@ def home():
 @app.route("/production-prediction", methods=["POST", "GET"])
 def prod_predict():
     title='Yield Prediction'
-    return render_template("yield_predict.html", title=title)
+    return render_template("yield_predict.html", title=title, current_year=current_year)
 
 
 @app.route("/price-prediction")
 def price_predict():
     title='Price Prediction'
-    return render_template("price_predict.html",title=title)
+    return render_template("price_predict.html",title=title, current_year=current_year)
 
 
 @app.route("/soil-prediction", methods=["POST", "GET"])
@@ -200,15 +203,20 @@ def disease_result():
         file_name = secure_filename(file.filename)
         destination = "/".join([target, file_name])
         file.save(destination)
+    if not file:
+        return render_template('disease_predict.html', title=title)
     
-    img = open(destination,"rb")
-    img.read()
+    try:
+        img = open(destination,"rb")
+        img.read()
 
-    prediction = predict_image(img)
-    prediction = Markup(str(disease_dic[prediction]))
+        prediction = predict_image(img)
+        prediction = Markup(str(disease_dic[prediction]))
 
-    return render_template('disease_result.html', prediction=prediction, title=title)
-
+        return render_template('disease_result.html', prediction=prediction, title=title)
+    except:
+        pass
+    return render_template('disease_predict.html', title=title)
 
 if __name__ == "__main__":
     app.run(debug=False)
