@@ -11,6 +11,12 @@
     position: absolute;
     top: 50%;
   }
+  
+  option:empty
+  {
+    display:none;
+  }
+  
 </style>
 
 <h1 style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
@@ -22,25 +28,26 @@
     <div class="col-md-6 mx-auto">
       <div class="form-floating mb-3">
         <!--STATE-->
-        <select class="form-select" id="state" name="State" aria-label="Floating label select example"
-          required='required' onchange="print_crop_y('crop', this.selectedIndex)">
+        <select class="form-select" id="state_yield" name="State" aria-label="Floating label select example"
+          required onchange="print_crop_y('crop_yield', this.selectedIndex)">
         </select>
         <label for="floatingSelect">Select State</label>
-      </div>
-      <div class="form-floating mb-3">
-        <!--CROP-->
-        <select class="form-select" id="crop" name="Crop" aria-label="Floating label select example"
-          required='required'>
-
-        </select>
-        <label for="floatingSelect">Select Crop</label>
-        <script language="javascript">
-          print_state_y("state");
+        <script>
+          print_state_y("state_yield");
         </script>
       </div>
       <div class="form-floating mb-3">
+        <!--CROP-->
+        <select class="form-select" id="crop_yield" name="Crop" aria-label="Floating label select example"
+          required>
+
+        </select>
+        <label for="floatingSelect">Select Crop</label>
+        
+      </div>
+      <div class="form-floating mb-3">
         <select class="form-select" id="floatingSelect" name="Season" aria-label="Floating label select example"
-          required='required'>
+          required >
           <option selected>Open this</option>
           <option value=1>Kharif</option>
           <option value=2>Rabi</option>
