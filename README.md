@@ -1,20 +1,22 @@
 # I-Farm
-This is I-Farm Project repo
+This is **I-Farm** Project repo
 
-Link to the web app, developed using flask and hosted on heroku: https://i-farm--aac.herokuapp.com/
+Link to the [web app](https://i-farm--aac.herokuapp.com/) developed using flask and hosted on heroku
+
+**Note:** Initially if the app receives no web traffic in a 30-minute period, it will sleep.Thus it may take time to load initally sometimes.
 
 ## Repo details
 * All ml and dl code is in Jupyter Notebooks directory
 * Datsets used for this are in datsets folder 
-    * Except this one used for DL : https://www.kaggle.com/vipoooool/new-plant-diseases-dataset
+    * Except this one used for DL [dataset](https://www.kaggle.com/vipoooool/new-plant-diseases-dataset)
 * The web app is only created from the Web_App directory by using the git subtree method and it runs independently prior to parent directory
-    * App is created using Flask and frontend is done using HTML, CSS , Bootstrap(v5.1) and Javascript
+    * App is created using Flask and frontend is done using HTML, CSS, Bootstrap(v5.x) and Javascript
     * All asscociated web app files are in this directory
 * To Run the code use requirements.txt in parent directory to create the project development environment
 * Check **Project Report** document for detailed description
 ## Precision Farming and Our Motive:
 
-It is An information and technology-based farm management system that identifies, analyses and manages variability in fields by conducting crop production practices at the right place and time and in the right way, for optimum profitability, sustainability and protection of the land resource.
+It is an information and technology-based farm management system that identifies, analyses and manages variability in fields by conducting crop production practices at the right place and time and in the right way, for optimum profitability, sustainability and protection of the land resource.
 
 Machine Learning has emerged together with big data technologies and high-performance computing to create new opportunities to unravel, quantify, and understand data intensive processes in agricultural operational environments. So we want to use power of new age technologies in improving agriculture and solving problems.
 
@@ -26,7 +28,7 @@ This project is done as part of AAC under ML Domain. The title of the project is
 We have used data from trusted sources and built some ML/DL models tackling 4 problem-statements:
 
 * Predicting the Yield of the crop based on the geographical aspects
-* Predicting the modal price of the crop.
+* Predicting the modal price of the crop based on the historic data.
 * Identifying the health status of soil.
 * Classifying the health status of the crop based on the images of leaves.
 #### 1. Yield Prediction:
@@ -63,7 +65,7 @@ We classify the leaf images of the following crops and predict the health the st
 14. Tomato
 
 
-**Note** : Due to limited data available we could train our models confinig to it . Also don't consider the outputs seriously . Kindly upload the files and input in proper format and units respectively.
+**Note** : Due to limited data available we could train our models confinig to it, so there is comparitively little info to check. Kindly upload the files and input in proper format and units respectively.
 
 #### Team Members:
 * Abhijna
