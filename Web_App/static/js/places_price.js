@@ -4,19 +4,19 @@ var crop_price = new Array();
 
 crop_price[0] = "";
 crop_price[1] =
-  " castor | chickpea | cotton | finger millet | groundnut | maize | pearl millet | pigeonpea | rice | seasmum | sorghum | sugarcane | wheat ";
+  "castor | chickpea | cotton | finger millet | groundnut | maize | pearl millet | pigeonpea | rice | seasmum | sorghum | sugarcane | wheat";
 crop_price[2] =
   "castor | chickpea | cotton | linseed | maize | pearl millet | pigeonpea | rape and mustard | rice | seasmum | sugarcane | wheat";
 crop_price[3] =
-  " barley | castor | chickpea | cotton | finger millet | groundnut | linseed | maize | pearl millet | pigeonpea | rape and mustard | rice | seasmum | sorghum | sugarcane | wheat";
+  "barley | castor | chickpea | cotton | finger millet | groundnut | linseed | maize | pearl millet | pigeonpea | rape and mustard | rice | seasmum | sorghum | sugarcane | wheat";
 crop_price[4] =
   "barley | castor | chickpea | cotton | finger millet | groundnut | linseed | maize | pearl millet | pigeonpea | rape and mustard | rice | seasmum | sorghum | sugarcane | wheat";
 crop_price[5] =
   "barley | castor | chickpea | cotton | finger millet | groundnut | maize |  pearl millet | pigeonpea | rape and mustard | rice | seasmum | sorghum | sugarcane | wheat";
 crop_price[6] =
-  " barley | castor | chickpea | cotton | groundnut | linseed | maize | pearl millet | pigeonpea | rape and mustard | rice | seasmum | sorghum | sugarcane | wheat";
+  "barley | castor | chickpea | cotton | groundnut | linseed | maize | pearl millet | pigeonpea | rape and mustard | rice | seasmum | sorghum | sugarcane | wheat";
 crop_price[7] =
-  " barley | chickpea | cotton | finger millet | groundnut | linseed | maize | pearl millet | pigeonpea | rape and mustard | rice | seasmum | sorghum | sugarcane | wheat";
+  "barley | chickpea | cotton | finger millet | groundnut | linseed | maize | pearl millet | pigeonpea | rape and mustard | rice | seasmum | sorghum | sugarcane | wheat";
 crop_price[8] =
   "barley | castor | chickpea | finger millet | groundnut | linseed | maize | pearl millet | pigeonpea | rape and mustard | rice | seasmum | sorghum | sugarcane | wheat";
 crop_price[9] =
@@ -59,7 +59,7 @@ function print_crop_p(crop_id, crop_index){
 	option_str.length=0;
 	option_str.options[0] = new Option('Select Crop','');
 	option_str.selectedIndex = 0;
-	var crop_arr = crop_price[crop_index].split("|");
+	var crop_arr = crop_price[crop_index].split(" | ");
 	for (var i=0; i<crop_price.length; i++) {
 		option_str.options[option_str.length] = new Option(crop_arr[i],crop_arr[i]);
 	}
