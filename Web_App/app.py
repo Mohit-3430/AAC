@@ -219,4 +219,4 @@ def disease_result():
     return render_template('disease_predict.html', title=title)
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=False);
