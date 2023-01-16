@@ -1,16 +1,12 @@
 from flask import Flask, request, render_template, flash, Markup
-import requests
-import io
 import os
 import joblib
-import torch
-from torchvision import transforms
 from werkzeug.utils import secure_filename
 # from gevent.pywsgi import WSGIServer
 from PIL import Image
-from utils.disease_model import ResNet9
 from utils.disease import disease_dic
 import datetime
+import numpy as np
 
 current_time = datetime.datetime.now() 
 current_year = current_time.year
@@ -61,28 +57,22 @@ disease_classes = ['Apple___Apple_scab',
                    'Tomato___Tomato_mosaic_virus',
                    'Tomato___healthy']
 
-disease_model_path = 'model_files/plant-disease-model.pth'
-disease_model = ResNet9(3, len(disease_classes))
-disease_model.load_state_dict(torch.load(disease_model_path, map_location=torch.device('cpu')))
-disease_model.eval()
+import tensorflow as tf
+disease_model = tf.keras.models.load_model('model_files/plant-disease-model')
 
-def predict_image(img, model=disease_model):
+def load_and_preprocess_image(path):
+    image = tf.io.read_file(path)
+    image = tf.image.decode_jpeg(image, channels=3)
+    image = tf.image.resize(image, [256, 256])
+    return image
 
-    transform = transforms.Compose([
-        transforms.Resize(256),
-        transforms.ToTensor(),
-    ])
-    image = Image.open((img))
-    img_t = transform(image)
-    img_u = torch.unsqueeze(img_t, 0)
 
-    # Get predictions from model
-    yb = model(img_u)
-    # Pick index with highest probability
-    _, preds = torch.max(yb, dim=1)
-    prediction = disease_classes[preds[0].item()]
-    # Retrieve the class label
-    return prediction
+def predict_image(path):
+    preprocessed_image = load_and_preprocess_image(path)
+    preprocessed_image = np.expand_dims(preprocessed_image, 0)
+    prediction = disease_model.predict(preprocessed_image)
+    predicted_class = disease_classes[np.argmax(prediction[0])]
+    return predicted_class
 
 app = Flask(__name__)
 
@@ -207,10 +197,7 @@ def disease_result():
         return render_template('disease_predict.html', title=title)
     
     try:
-        img = open(destination,"rb")
-        img.read()
-
-        prediction = predict_image(img)
+        prediction = predict_image(destination)
         prediction = Markup(str(disease_dic[prediction]))
 
         return render_template('disease_result.html', prediction=prediction, title=title)
@@ -219,4 +206,4 @@ def disease_result():
     return render_template('disease_predict.html', title=title)
 
 if __name__ == "__main__":
-    app.run(debug=False);
+    app.run(debug=True);
