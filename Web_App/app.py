@@ -58,6 +58,10 @@ disease_classes = ['Apple___Apple_scab',
                    'Tomato___healthy']
 
 import tensorflow as tf
+
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 disease_model = tf.keras.models.load_model('model_files/plant-disease-model')
 
 def load_and_preprocess_image(path):
