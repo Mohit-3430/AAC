@@ -3,7 +3,6 @@ import os
 import joblib
 from werkzeug.utils import secure_filename
 # from gevent.pywsgi import WSGIServer
-from PIL import Image
 from utils.disease import disease_dic
 import datetime
 import numpy as np
