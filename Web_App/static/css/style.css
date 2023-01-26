@@ -1,0 +1,57 @@
+/* Home Banner */
+
+.banner-top {
+    background: url(../images/stock_dark.jpg) no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+}
+
+.banner-info {
+    padding-top: 8em;
+    padding-bottom: 7em;
+        
+}
+
+.banner-info p {
+    padding-top: 0.25em;
+    font-size: 1.25em;
+    /* max-width: 650px; */
+    color: #fff;
+}
+#proj_title{
+    font-size: 4em;
+    text-shadow: 3px 4px 6px rgba(45, 45, 45, 0.15);
+    color: #fff;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    overflow: hidden;
+    min-height: 0px;
+}
+
+/* Footer */
+
+html{
+    height: 100%;
+}
+
+body{
+    min-height: 100vh;
+}
+
+footer {
+    position: sticky;
+    top:100%
+}
+
+/* cards */
+
+.card-title{
+    font-size: 1.25rem;
+}
+
+.card-text {
+    font-size:0.9rem ;
+}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}}
+
+{% block body %}
+
+<style>
+    .wrapper {
+        text-align: center;
+    }
+
+    .button {
+        position: absolute;
+        top: 50%;
+    }
+
+    div {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+</style>
+
+<br>
+
+<div class="container py-2 mx-auto my-25 h-5 " style="margin: 1rem;">
+    <div class="row">
+        <div class="col-sm py-2 py-md-3">
+            <div class="card card-body" style="justify-content: center;">
+                <h1 class="text-center"><b>Suggestions</b></h1>
+                <p class="text-center py-1 px-1" style="color: black; font-size: 22px;">{{ recommendation }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="wrapper">
+    <button class="btn btn-primary" onclick="btnClicked()"> Back </button>
+    <script>
+        function btnClicked() {
+            window.location.href = "{{ url_for('fertilizer_predict') }}";
+        }
+    </script>
+</div>
+
+{% endblock %}

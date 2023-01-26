@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<style>
+	.box-shadow {
+		box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+	}
+</style>
+
+
+<section class="banner">
+	<div>
+		<div class="banner-top">
+			<div class="overlay">
+				<div class="container">
+					<div class="banner-info text-center">
+						<div class="row">
+							<p class="col-xs-auto mx-sm-auto my-sm-2" id="proj_title"><b>I-Farm</b></p>
+							<p class="mx-sm-auto my-sm-2"><b>Technology for better yield</b></p>
+							<p class="mx-sm-auto my-sm-2">"Explore with us and experience the real agriculture"</p>
+						</div>
+						<button class="btn btn-secondary " onclick="btnClicked()">Read More</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="blog py-3 y-sm-0"
+	style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+	<div class="container justify-content-center">
+		<div class="row">
+			<h3 class="heading mb-sm-3 mb-3 text-center py-3"> You can visit</h3>
+			<div class="col-lg-4 col-md-6 py-3 py-sm-3">
+				<div class="card box-shadow">
+					<div class="img-effect">
+						<img src="static/images/crop_prediction.jpg" class="card-img-top" alt="...">
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Crop Prediction </h5>
+						<p class="card-text">Crop Recommendation system using Machine Learning which suggests the crop
+							which can be
+							suitably
+							grown in the given climatic conditions for better yield
+						</p>
+						<a href="{{ url_for('cop_recommendation') }}" class="btn btn-outline-primary">Visit</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 py-3 py-sm-3">
+				<div class="card box-shadow">
+					<div class="img-effect">
+						<img src="/static/images/yield.jpg" class="card-img-top" alt="...">
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Yield Prediction</h5>
+						<p class="card-text">ML is an important support tool for crop yield prediction,we tell how much
+							yield you may expect during the growing season of the crops based on geographics.</p>
+						<a href="{{ url_for('prod_predict') }}" class="btn btn-outline-primary">Visit</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 py-3 py-sm-3">
+				<div class="card box-shadow">
+					<div class="img-effect">
+						<img src="/static/images/cost.jpg" class="card-img-top" alt="...">
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Price Prediction</h5>
+						<p class="card-text">Price of production is important agricultural problem which can be
+							solved based on the available data. Predict the price for the next rotation in your state.
+						</p>
+						<a href="{{ url_for('price_predict') }}" class="btn btn-outline-primary">Visit</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 py-3 py-sm-3">
+				<div class="card box-shadow">
+					<div class="img-effect">
+						<img src="static/images/soil.jpg" class="card-img-top" alt="...">
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Soil Health </h5>
+						<p class="card-text">The accurate estimation of soil health is important in plant growth.
+							Maintain the nutrient values by estimating it with climatic conditions.</p>
+						<a href="{{ url_for('soil_predict') }}" class="btn btn-outline-primary">Visit</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 py-3 py-sm-3">
+				<div class="card box-shadow">
+					<div class="img-effect">
+						<img src="static/images/organic.jpg" class="card-img-top" alt="...">
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Fertilizer Suggestion</h5>
+						<p class="card-text">Soil health is important in plant growth.
+							based on the crop and soil composition know organic ways of improving the its composition
+							for better results
+						</p>
+						<a href="{{ url_for('fertilizer_predict') }}" class="btn btn-outline-primary">Visit</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 py-3 py-sm-3">
+				<div class="card box-shadow">
+					<div class="img-effect">
+						<img src="static/images/disease.jpg" class="card-img-top" alt="...">
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Disease Detection</h5>
+						<p class="card-text">Modern technologies have given humans the ability to produce enough for
+							more than 7 billion people. We detect the health status of crop.</p>
+						<a href="{{ url_for('disease_predict') }}" class="btn btn-outline-primary">Visit</a>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="col-lg-3 col-md-6 py-sm-3">
+				<div class="card box-shadow">
+					<div class="img-effect">
+						<img src="static/images/gov-schemes.jpg" class="card-img-top" alt="...">
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Government Schemes</h5>
+						<p class="card-text">Modern technologies have given humans the ability to produce enough for
+							more than 7 billion people. We detect the health status of crop.</p>
+						<a href="{{ url_for('disease_predict') }}" class="btn btn-outline-primary">Visit</a>
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+</section>
+
+<script>
+	function btnClicked() {
+		window.location.href = "{{ url_for('about_us') }}";
+	}
+</script>
+
+{% endblock %}

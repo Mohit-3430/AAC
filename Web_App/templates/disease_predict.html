@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<style>
+  .wrapper {
+    text-align: center;
+  }
+
+  .button {
+    position: absolute;
+    top: 50%;
+  }
+</style>
+
+<h1 style="text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"
+  class="my-3  py-2">Detect Disease</h1>
+
+
+<div class="container my-4" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+  <form action="{{ url_for('disease_result') }}" method="POST" enctype="multipart/form-data">
+    <div class="col-md-6 mx-auto">
+      <div class="mb-3">
+        <label for="formFile" class="form-label mb-1">Upload Image of a <b>Leaf</b>:</label>
+        <input class="form-control my-2" type="file" name="file" id="formFile" accept="image/*"
+          required>
+      </div>
+      <div class=" wrapper">
+        <button type="submit" class="btn btn-outline-primary btn-block btn-large my-2">Detect</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}

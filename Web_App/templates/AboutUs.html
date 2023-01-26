@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<style>
+  div {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+</style>
+
+<h1 class="text-center my-4">About Us & Project</h1>
+<div class="container mx-auto my-3">
+  <div class="row my-2">
+    <div class="col-sm ">
+      <div class="card card-body">
+        <p class=" py-1 px-1 text-start">
+          <b class="text-start">Precision Farming and Our Motive:</b><br>
+          <br>It is an information and technology-based farm management system that identifies, analyses and manages
+          variability in fields by conducting crop production practices at the right place and time and in the right
+          way, for optimum profitability, sustainability and protection of the land resource.<br>
+          <br>Machine Learning has emerged together with big data technologies and high-performance computing to create
+          new opportunities to unravel, quantify, and understand data intensive processes in agricultural operational
+          environments. So we want to use power of new age technologies in improving agriculture and solving
+          problems.<br>
+          <br> In a country like India, which has ever increasing demand of food due to rising population, advances in
+          agriculture sector are required to meet the needs.
+          <br><br><b class="text-start">Our Project:</b><br>
+        <p>This project is done as part of <a href="http://epitome23.griet.ac.in/" style="text-decoration: none;"
+            target="_blank">Griet Epitome</a> 2023, under <b>AgroTech</b> Domain. The title of the project is
+          <b>I-Fram</b> (Intellect)
+        </p>
+        <p>We have used data from trusted sources and built some ML/DL models tackling 5 problem-statements:</p>
+        <ol>
+          <li> Recommending crop to be grown based on soil and climatic conditions.</li>
+          <li> Predicting the Yield of the crop based on the geographical aspects</li>
+          <li> Predicting the modal price of the crop based on the historic data.</li>
+          <li> Identifying the health status of soil.</li>
+          <li> Classifying the health status of the crop based on the images of leaves.</li>
+        </ol>
+        <hr>
+        <b class="text-start">1. Crop Recommendation:</b><br>
+        The system requires inputs soil composition and its Ph, average annual rainfall(mm), temperature, from the user.
+        Based on the given parameters the system will predict the Production (in quintals) for the crop and yield of the
+        crop per acre.<br><br>
+
+        <b class="text-start">2. Yield Prediction:</b><br>
+        The system requires inputs such as state, year, crop name, area, average annual rainfall(mm) from the user.
+        Based on the given parameters the system will predict the Production (in quintals) for the crop and yield of the
+        crop per acre.<br>
+
+        <br><b class="text-start">3. Price Prediction:</b><br>
+        Price Prediction nowadays, has become a very important agricultural problem. The aim of this project is to
+        predict the crop price for the next rotation. This provides the farmer with an insight of what the future price
+        (per quintal) of the crop that farmer is going to harvest.<br>
+
+        <br><b class="text-start">4. Soil Health Prediction:</b><br>
+        Fertilizers are being used to increase crop productivity, but for producing more crop, nutrient level of soil
+        and crop monitoring is more important. This is one of the main factors for the production of rich and good
+        quality crops and also helps the farmers to determine the type of crops to be planted on his land.
+        Based on the output of optimal N-P-K values further action can be taken.<br>
+
+        <br><b class="text-start">5. Fertilizer Suggestion</b><br>
+        Soil fertility refers to the ability of soil to sustain agricultural plant growth, i.e. to provide plant habitat
+        and result in sustained and consistent yields of high quality. Based on the current composition of soil we
+        suggest what to do to improve soil fertility<br>
+
+        <br><b class="text-start">6. Disease Detection:</b><br>
+        Crop diseases are a major threat to food security, but their rapid identification remains difficult in many
+        parts of the world due to the lack of the necessary infrastructure. Plant diseases are not only a threat to food
+        security at the global scale, but can also have disastrous consequences for smallholder farmers whose
+        livelihoods depend on healthy crops. Detect Them.<br>
+        <br>We classify the leaf images of the following crops and predict the health the status and provide the details
+        of the crop disease and some cures.<br><br>
+        <ul>
+          <li>Apple</li>
+          <li>Blueberry</li>
+          <li>Cherry</li>
+          <li>Corn</li>
+          <li>Grape</li>
+          <li>Orange</li>
+          <li>Pepper</li>
+          <li>Peach</li>
+          <li>Potato</li>
+          <li>Raspberry</li>
+          <li>Soyabean</li>
+          <li>Strawberry</li>
+          <li>Squash</li>
+          <li>Tomato</li>
+        </ul>
+        <hr><br>
+        <b>Note : Due to limited data available we could train our models confinig to it , so there is comparitively
+          little info to check . Kindly upload the files and input in proper format and units respectively.</b>
+        </p>
+        <hr>
+        <p class="text-start">
+        <h5>Team Members:</h5>
+        <ul>
+          <li>Abhijna</li>
+          <li>Deekshitha</li>
+          <li>Mohit</li>
+          <li>Nitin</li>
+          <li>Sreeja</li>
+        </ul>
+        </p>
+        <hr>
+        <!-- <p class="mt-2 text-start">Git Hub Repo<a href="https://github.com/Mohit-3430/I-Farm"
+            style="text-decoration: none;" target="_blank"> Link </a></p>
+        <hr> -->
+        <h5 class="text-start">Tech Used:</h5>
+        <ol>
+          <li>ML and DL:</li>
+          <ul>
+            <li>Scikit-learn</li>
+            <li>TensorFlow</li>
+            <li>Other major Datascience libraries</li>
+            <br>
+          </ul>
+          <li>Web development:</li>
+          <ol>
+            <li>Frontend:</li>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Javascript</li>
+              <li>Bootstrap(v5.x)</li>
+            </ul>
+            <li>Backend:</li>
+            <ul>
+              <li>Flask</li>
+
+            </ul>
+          </ol>
+
+        </ol>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
