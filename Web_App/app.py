@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, flash, Markup
 import os
 import joblib
+import requests
 from werkzeug.utils import secure_filename
 # from gevent.pywsgi import WSGIServer
 from utils.disease import disease_dic
@@ -8,6 +9,9 @@ from utils.fertilizer import fertilizer_dic
 import datetime
 import numpy as np
 import pandas as pd
+
+from dotenv import load_dotenv
+load_dotenv()
 
 current_time = datetime.datetime.now() 
 current_year = current_time.year
@@ -127,11 +131,17 @@ def crop_result():
     title = "Crop Result"
 
     if request.method == "POST":
+        place = request.form.get("state")
         n = request.form.get("n-value")
         p = request.form.get("p-value")
         k = request.form.get("k-value")
-        temperature = float(request.form["Temperature"])
-        humidity = float(request.form["Humidity"]) 
+
+        url = 'https://api.openweathermap.org/data/2.5/weather?q={}&appid={}&units=metric'.format(place, os.getenv('API_ID'))
+        resp = requests.post(url)
+        resp = resp.json()['main']
+
+        temperature = float(resp['temp'])
+        humidity = float(resp['humidity'])
         rainfall = float(request.form["Rainfall"])
         ph = float(request.form["Ph"])
     

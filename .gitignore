@@ -5,3 +5,4 @@ Web_App/.vscode
 Web_App/__pycache__
 Web_App/utils/__pycache__
 Web_App/static/uploads
+.env
