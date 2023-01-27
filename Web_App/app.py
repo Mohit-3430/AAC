@@ -125,6 +125,43 @@ def about_us():
 
     return render_template("AboutUs.html", title=title)
 
+@app.route("/gov-schemes")
+def gov_schemes():
+    title="Gov-Schemes"
+
+    return render_template("/gov_schemes/gov-schemes.html", title=title)
+
+@app.route("/gov-insurance")
+def gov_insurance():
+
+    return render_template("/gov_schemes/insurance.html")
+
+@app.route("/gov-irrigation")
+def gov_irrigation():
+
+    return render_template("/gov_schemes/irrigation.html")
+
+@app.route("/gov-organic")
+def gov_organic():
+
+    return render_template("/gov_schemes/organic.html")
+
+
+@app.route("/gov-soil")
+def gov_soil():
+
+    return render_template("/gov_schemes/soil-health.html")
+
+@app.route("/gov-power-assistance")
+def gov_power_assistance():
+
+    return render_template("/gov_schemes/power-assistance.html")  
+
+@app.route("/gov-financial-assistance")
+def gov_financial_assistance():
+
+    return render_template("/gov_schemes/financial-assistance.html")  
+
 # ========= Result pages =======
 @app.route("/crop-result", methods=["POST", "GET"])
 def crop_result():
