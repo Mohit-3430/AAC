@@ -23,65 +23,67 @@ model_cost = joblib.load(open("model_files/price_prediction_icrisat.joblib", "rb
 
 # loading dl model
 
-disease_classes = ['Apple___Apple_scab',
-                   'Apple___Black_rot',
-                   'Apple___Cedar_apple_rust',
-                   'Apple___healthy',
-                   'Blueberry___healthy',
-                   'Cherry_(including_sour)___Powdery_mildew',
-                   'Cherry_(including_sour)___healthy',
-                   'Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot',
-                   'Corn_(maize)___Common_rust_',
-                   'Corn_(maize)___Northern_Leaf_Blight',
-                   'Corn_(maize)___healthy',
-                   'Grape___Black_rot',
-                   'Grape___Esca_(Black_Measles)',
-                   'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)',
-                   'Grape___healthy',
-                   'Orange___Haunglongbing_(Citrus_greening)',
-                   'Peach___Bacterial_spot',
-                   'Peach___healthy',
-                   'Pepper,_bell___Bacterial_spot',
-                   'Pepper,_bell___healthy',
-                   'Potato___Early_blight',
-                   'Potato___Late_blight',
-                   'Potato___healthy',
-                   'Raspberry___healthy',
-                   'Soybean___healthy',
-                   'Squash___Powdery_mildew',
-                   'Strawberry___Leaf_scorch',
-                   'Strawberry___healthy',
-                   'Tomato___Bacterial_spot',
-                   'Tomato___Early_blight',
-                   'Tomato___Late_blight',
-                   'Tomato___Leaf_Mold',
-                   'Tomato___Septoria_leaf_spot',
-                   'Tomato___Spider_mites Two-spotted_spider_mite',
-                   'Tomato___Target_Spot',
-                   'Tomato___Tomato_Yellow_Leaf_Curl_Virus',
-                   'Tomato___Tomato_mosaic_virus',
-                   'Tomato___healthy']
+#=========== The following code responsible for disease classification is hosted sepeartely and a API has been created out of it.
 
-import tensorflow as tf
+# disease_classes = ['Apple___Apple_scab',
+#                    'Apple___Black_rot',
+#                    'Apple___Cedar_apple_rust',
+#                    'Apple___healthy',
+#                    'Blueberry___healthy',
+#                    'Cherry_(including_sour)___Powdery_mildew',
+#                    'Cherry_(including_sour)___healthy',
+#                    'Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot',
+#                    'Corn_(maize)___Common_rust_',
+#                    'Corn_(maize)___Northern_Leaf_Blight',
+#                    'Corn_(maize)___healthy',
+#                    'Grape___Black_rot',
+#                    'Grape___Esca_(Black_Measles)',
+#                    'Grape___Leaf_blight_(Isariopsis_Leaf_Spot)',
+#                    'Grape___healthy',
+#                    'Orange___Haunglongbing_(Citrus_greening)',
+#                    'Peach___Bacterial_spot',
+#                    'Peach___healthy',
+#                    'Pepper,_bell___Bacterial_spot',
+#                    'Pepper,_bell___healthy',
+#                    'Potato___Early_blight',
+#                    'Potato___Late_blight',
+#                    'Potato___healthy',
+#                    'Raspberry___healthy',
+#                    'Soybean___healthy',
+#                    'Squash___Powdery_mildew',
+#                    'Strawberry___Leaf_scorch',
+#                    'Strawberry___healthy',
+#                    'Tomato___Bacterial_spot',
+#                    'Tomato___Early_blight',
+#                    'Tomato___Late_blight',
+#                    'Tomato___Leaf_Mold',
+#                    'Tomato___Septoria_leaf_spot',
+#                    'Tomato___Spider_mites Two-spotted_spider_mite',
+#                    'Tomato___Target_Spot',
+#                    'Tomato___Tomato_Yellow_Leaf_Curl_Virus',
+#                    'Tomato___Tomato_mosaic_virus',
+#                    'Tomato___healthy']
 
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+# import tensorflow as tf
 
-disease_model = tf.keras.models.load_model('model_files/plant-disease-model')
+# import os
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-def load_and_preprocess_image(path):
-    image = tf.io.read_file(path)
-    image = tf.image.decode_jpeg(image, channels=3)
-    image = tf.image.resize(image, [256, 256])
-    return image
+# disease_model = tf.keras.models.load_model('model_files/plant-disease-model')
+
+# def load_and_preprocess_image(path):
+#     image = tf.io.read_file(path)
+#     image = tf.image.decode_jpeg(image, channels=3)
+#     image = tf.image.resize(image, [256, 256])
+#     return image
 
 
-def predict_image(path):
-    preprocessed_image = load_and_preprocess_image(path)
-    preprocessed_image = np.expand_dims(preprocessed_image, 0)
-    prediction = disease_model.predict(preprocessed_image)
-    predicted_class = disease_classes[np.argmax(prediction[0])]
-    return predicted_class
+# def predict_image(path):
+#     preprocessed_image = load_and_preprocess_image(path)
+#     preprocessed_image = np.expand_dims(preprocessed_image, 0)
+#     prediction = disease_model.predict(preprocessed_image)
+#     predicted_class = disease_classes[np.argmax(prediction[0])]
+#     return predicted_class
 
 app = Flask(__name__)
 
@@ -290,17 +292,24 @@ def disease_result():
         file_name = secure_filename(file.filename)
         destination = "/".join([target, file_name])
         file.save(destination)
-    if not file:
-        return render_template('disease_predict.html', title=title)
-    
-    try:
-        prediction = predict_image(destination)
-        prediction = Markup(str(disease_dic[prediction]))
+        try:
+            # prediction = ""
+            url = 'https://i-farm-disease-api.up.railway.app/disease-predict'
 
-        return render_template('disease_result.html', prediction=prediction, title=title)
-    except:
-        pass
-    return render_template('disease_predict.html', title=title)
+            with open(destination, 'rb') as img:
+                name_img= os.path.basename(destination)
+                files= {'file': (name_img, img,'multipart/form-data',{'Expires': '0'}) }
+
+                response = requests.request("POST",url, files=files)
+                prediction = response.text
+
+            prediction = Markup(str(disease_dic[prediction]))
+
+            return render_template('disease_result.html', prediction=prediction, title=title)
+        except Exception as e:
+            print(str(e))
+    else:
+        return render_template('disease_predict.html', title=title)
 
 if __name__ == "__main__":
     app.run(debug=True);
