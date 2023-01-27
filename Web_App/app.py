@@ -16,7 +16,6 @@ current_year = current_time.year
 model_crop = joblib.load(open("model_files/crop_prediction.joblib", "rb"))
 model_yield = joblib.load(open("model_files/crop_yield_prediction.joblib", "rb"))
 model_cost = joblib.load(open("model_files/price_prediction_icrisat.joblib", "rb"))
-model_soil = joblib.load(open("model_files/soil_health.joblib","rb"))
 
 # loading dl model
 
@@ -106,11 +105,6 @@ def price_predict():
     return render_template("price_predict.html",title=title, current_year=current_year)
 
 
-@app.route("/soil-prediction", methods=["POST", "GET"])
-def soil_predict():
-    title='Soil Health'
-    return render_template("soil_predict.html",title=title)
-
 @app.route("/fertilizer-predict")
 def fertilizer_predict():
     title = "Fertilizer Prediction"
@@ -189,25 +183,6 @@ def price_result():
         cost=cost, title=title
     )
 
-@app.route("/soil-result",  methods=["POST", "GET"])
-def soil_result():
-    
-    title='Soil Result'
-
-    if request.method == "POST":
-        crop = request.form.get("Crop")
-        temperature = float(request.form["Temperature"])
-        humidity = float(request.form["Humidity"]) 
-        rainfall = float(request.form["Rainfall"])
-        ph = float(request.form["Ph"])
-
-    result = model_soil.predict([[crop,temperature,humidity,rainfall,ph]])
-    
-    N = int(result[0][0])
-    P = int(result[0][1])
-    K = int(result[0][2])
-
-    return render_template("soil_result.html", N=N, P=P, K=K,title=title)
 
 @app.route("/fertilizer-predict", methods=["POST", "GET"])
 def fertilizer_result():
