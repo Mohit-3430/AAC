@@ -51,11 +51,23 @@
     <!--External js files for enabling selection-->
     <script type="text/JavaScript" src="{{ url_for('static', filename='js/places_yield.js') }}"></script>
     <script type="text/JavaScript" src="{{ url_for('static', filename='js/places_price.js') }}"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="google_translate_element"></div>
+    <div class="header">
+        <span id="google_translate_element"></span>
+        <span class="mx-3" id=""><i class="fa-solid fa-phone"></i> +91 970XXXX159</span>
+    </div>
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark "
             style="background-color: #1C00ff00; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
