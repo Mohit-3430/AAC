@@ -57,7 +57,16 @@ Soil fertility refers to the ability of soil to sustain agricultural plant growt
 and result in sustained and consistent yields of high quality. Based on the current composition of soil we
 suggest what to do to improve soil fertility
 
-#### 6. Disease Detection:
+#### 6. Government Schemes:
+
+Crop diseases are a major threat to food security, but their rapid identification remains difficult in many
+parts of the world due to the lack of the necessary infrastructure. Plant diseases are not only a threat to food
+security at the global scale, but can also have disastrous consequences for smallholder farmers whose
+livelihoods depend on healthy crops. Detect Them.
+We classify the leaf images of the following crops and predict the health the status and provide the details
+of the crop disease and some cures.
+
+#### 7. Disease Detection:
 
 Crop diseases are a major threat to food security, but their rapid identification remains difficult in many parts of the world due to the lack of the necessary infrastructure. Plant diseases are not only a threat to food security at the global scale, but can also have disastrous consequences for smallholder farmers whose livelihoods depend on healthy crops. Detect Them.
 
