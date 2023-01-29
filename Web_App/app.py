@@ -170,7 +170,7 @@ def crop_result():
     title = "Crop Result"
 
     if request.method == "POST":
-        place = request.form.get("state")
+        place = request.form.get("city")
         n = request.form.get("n-value")
         p = request.form.get("p-value")
         k = request.form.get("k-value")
@@ -223,7 +223,6 @@ def price_result():
         crop = request.form["Crop"]
         year = int(request.form["Year"])
 
-    
     cost = model_cost.predict([[state, crop, year]])[0]
     cost = round(cost, 2)
 
@@ -238,15 +237,16 @@ def fertilizer_result():
     title = "Fertilizer Suggestion"
 
     if request.method == "POST":
-        crop_name = str(request.form['Crop'])
+        crop_name = request.form['Crop']
         N = int(request.form['n-value'])
         P = int(request.form['p-value'])
         K = int(request.form['k-value'])
         ph = float(request.form['ph'])
-    
+
     df = pd.read_csv('data/fertilizers.csv')
 
     n_optimal = df[df['Crop'] == crop_name]['N'].iloc[0]
+    print(n_optimal)
     p_optimal = df[df['Crop'] == crop_name]['P'].iloc[0]
     k_optimal = df[df['Crop'] == crop_name]['K'].iloc[0]
 
