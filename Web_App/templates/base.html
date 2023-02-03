@@ -60,6 +60,10 @@
             flex-direction: row;
             justify-content: space-between;
         }
+
+        iframe {
+            display: none !important;
+        }
     </style>
 </head>
 
@@ -134,10 +138,13 @@
         </script>
 
     </script>
-    <script type="text/javascript">
+    <script type="text/javascript" defer>
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-            document.getElementById(':0.targetLanguage').nextSibling.remove()
+            const language = document.getElementById(':0.targetLanguage')
+            while (language.nextSibling) {
+                language.nextSibling.remove()
+            }
         }
     </script>
     <script type="text/javascript"
