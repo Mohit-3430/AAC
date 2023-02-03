@@ -2,6 +2,8 @@
 
 This is **I-Farm** Project repo
 
+Note: Initially if the app receives no web traffic in a 30-minute period, it will sleep.Thus it may take time to load initally sometimes.
+
 ## Repo details
 
 - All ml and dl code is in Jupyter Notebooks directory
@@ -22,8 +24,6 @@ Machine Learning has emerged together with big data technologies and high-perfor
 In a country like India, which has ever increasing demand of food due to rising population, advances in agriculture sector are required to meet the needs.
 
 # Our Project:
-
-This project is done as part of [Griet Epitome 2023](http://epitome23.griet.ac.in/), under AgroTech Domain. The title of the project is I-Fram (Intellect)
 
 We have used data from trusted sources and built some ML/DL models tackling 5 problem-statements:
 
