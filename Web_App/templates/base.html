@@ -70,7 +70,7 @@
 <body>
     <div class="header">
         <span id="google_translate_element"></span>
-        <span class="mx-3" id=""><i class="fa-solid fa-phone"></i> +91 970XXXX159</span>
+        <!-- <span class="mx-3" id=""><i class="fa-solid fa-phone"></i> +91 9708789159</span> -->
     </div>
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark "
@@ -88,29 +88,41 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <ul class="navbar-nav ms-auto text-center">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('cop_recommendation') }}">Crop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('prod_predict') }}">Yield</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('price_predict') }}">Price</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('fertilizer_predict') }}">Fertilizer</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('disease_predict') }}">Disease</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('gov_schemes') }}">Schemes</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" target="_blank"
                                 href="https://drive.google.com/file/d/1o27BqbDCs7UqmNhN0NvNI1s0Rz_PVCmP/view?usp=sharing">
                                 Help
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="{{ url_for('about_us') }}">
+                                About US
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('gov_schemes') }}">Schemes</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Products
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="{{ url_for('cop_recommendation') }}">Crop</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="{{ url_for('prod_predict') }}">Yield</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="{{ url_for('price_predict') }}">Price</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="{{ url_for('fertilizer_predict') }}">Fertilizer</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="{{ url_for('disease_predict') }}">Disease</a>
+                                </li>
+                            </ul>
                     </ul>
                 </div>
             </div>
